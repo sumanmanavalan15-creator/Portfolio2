@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Suman M | Student Portfolio</title>
+
+  <meta name="description"
+    content="Portfolio of Suman M, a student interested in programming, AI and software development.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b1120;
+      --card: #111827;
+      --card-light: #172033;
+      --border: #263247;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --primary: #60a5fa;
+      --secondary: #38bdf8;
+      --accent: #a78bfa;
+      --success: #4ade80;
+      --max-width: 1050px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 17, 32, 0.92);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
+      min-height: 580px;
+      display: flex;
+      align-items: center;
+      padding: 90px 0 70px;
+      background: radial-gradient(
+        circle at 80% 20%,
+        rgba(96, 165, 250, 0.14),
+        transparent 30%
+      );
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hello {
+      color: var(--primary);
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2.7rem, 7vw, 5rem);
+      line-height: 1.1;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero-role {
+      font-size: 1.25rem;
+      color: var(--muted);
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-description {
+      max-width: 680px;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.3rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #07101f;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: var(--secondary);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    section {
+      padding: 80px 0;
+      scroll-margin-top: 70px;
+    }
+
+    .section-heading {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-label {
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-heading h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 2rem;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin-top: 0.5rem;
+      max-width: 650px;
+    }
+
+    .about-text {
+      max-width: 800px;
+      color: var(--muted);
+    }
+
+    .highlight {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 1.4rem;
+      border-radius: 12px;
+      transition: 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+
+    .skill-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* PROJECTS */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.3rem;
+      align-items: stretch;
+    }
+
+    .project {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.6rem;
+      transition: 0.3s;
+    }
+
+    .project:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+
+    .project-number {
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .project h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.25rem;
+      margin: 0.4rem 0;
+    }
+
+    .project-tech {
+      color: var(--accent);
+      font-size: 0.8rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .project ul {
+      margin: 0.8rem 0 0 1.2rem;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    /* EDUCATION */
+
+    .timeline {
+      border-left: 2px solid var(--border);
+      padding-left: 1.5rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      left: -1.9rem;
+      top: 7px;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.05rem;
+    }
+
+    .institution {
+      color: var(--primary);
+      font-size: 0.9rem;
+      margin: 0.2rem 0;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .marks-card {
+      margin-top: 1rem;
+      padding: 1.4rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .marks-card h3 {
+      margin-bottom: 0.6rem;
+    }
+
+    .marks-card p {
+      color: var(--muted);
+      margin: 0.3rem 0;
+    }
+
+    .percentage {
+      color: var(--success);
+      font-weight: 700;
+      font-size: 1.15rem;
+    }
+
+    .learning-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .learning-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+    }
+
+    .learning-card h3 {
+      font-size: 1rem;
+    }
+
+    .learning-card p {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 0.4rem;
+    }
+
+    .status {
+      display: inline-block;
+      margin-top: 0.8rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      background: rgba(74, 222, 128, 0.1);
+      color: var(--success);
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    .achievement-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem;
+    }
+
+    .achievement {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .achievement::before {
+      content: "✓";
+      color: var(--success);
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .tag {
+      padding: 0.5rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background: var(--card);
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .contact-box {
+      background: linear-gradient(
+        135deg,
+        var(--card),
+        var(--card-light)
+      );
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 2rem;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .contact-link {
+      display: inline-block;
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.85rem;
+      transition: 0.3s;
+    }
+
+    .contact-link:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 700px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 80px 0 60px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .skills-grid,
+      .learning-grid,
+      .achievement-list,
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .hero-role {
+        font-size: 1.05rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <div class="container nav-container">
+
+      <a href="#home" class="logo">
+        S<span>.</span> SUMAN
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <!-- HERO -->
+
+  <header class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+
+        <div class="hello">HELLO, I'M</div>
+
+        <h1>Suman <span>M</span></h1>
+
+        <div class="hero-role">
+          Computer Science Student
+        </div>
+
+        <p class="hero-description">
+          A student interested in programming, Artificial Intelligence,
+          software development and practical technology projects.
+          I enjoy learning new technologies and turning ideas into
+          useful applications.
+        </p>
+
+        <div class="buttons">
+          <a href="#projects" class="btn btn-primary">
+            View My Projects
+          </a>
+
+          <a href="#contact" class="btn btn-outline">
+            Contact Me
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="section-label">About Me</div>
+        <h2>Learning through practical projects</h2>
+      </div>
+
+      <p class="about-text">
+        I'm <span class="highlight">Suman M</span>, a student
+        interested in programming, AI-based applications and
+        software development.
+
+        <br><br>
+
+        I enjoy creating interactive applications, experimenting
+        with new technologies and improving my problem-solving skills.
+
+        <br><br>
+
+        My goal is to develop my technical knowledge and build
+        useful projects that solve real-world problems.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="section-label">Technical Skills</div>
+        <h2>Areas of Interest</h2>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <h3>Python Programming</h3>
+          <p>
+            Programming fundamentals, logical problem solving
+            and application development.
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Artificial Intelligence</h3>
+          <p>
+            Exploring AI concepts and intelligent applications.
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Web Development</h3>
+          <p>
+            Creating websites using HTML, CSS and JavaScript.
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Application Development</h3>
+          <p>
+            Building interactive applications and useful tools.
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Voice-Based Applications</h3>
+          <p>
+            Exploring speech input, voice commands and
+            spoken responses.
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Problem Solving</h3>
+          <p>
+            Developing logical thinking through programming projects.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS: ONLY THREE PROJECTS -->
+
+  <section id="projects">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="section-label">Projects</div>
+        <h2>My Projects</h2>
+
+        <p>
+          Projects focused on game development, AI assistance
+          and voice-based calculations.
+        </p>
+      </div>
+
+      <div class="projects">
+
+        <!-- PROJECT 01: TIC TAC TOE -->
+
+        <div class="project">
+
+          <div class="project-number">PROJECT 01</div>
+
+          <h3>Tic Tac Toe Game</h3>
+
+          <div class="project-tech">
+            Game Development • Logic Building • User Interface
+          </div>
+
+          <p>
+            An interactive Tic Tac Toe game where players place
+            X and O symbols on a 3 × 3 grid. The game checks
+            rows, columns and diagonals to identify a winner
+            or a draw.
+          </p>
+
+          <ul>
+            <li>Designed a simple and interactive game board.</li>
+            <li>Implemented player moves and game rules.</li>
+            <li>Checked winning combinations.</li>
+            <li>Displayed the winner or draw result.</li>
+          </ul>
+
+        </div>
+
+        <!-- PROJECT 02: AI ASSISTANT -->
+
+        <div class="project">
+
+          <div class="project-number">PROJECT 02</div>
+
+          <h3>AI Assistant</h3>
+
+          <div class="project-tech">
+            Artificial Intelligence • Automation • User Interaction
+          </div>
+
+          <p>
+            An assistant application designed to help users
+            interact with a computer or application through
+            supported commands and useful responses.
+          </p>
+
+          <ul>
+            <li>Designed a user-friendly interaction interface.</li>
+            <li>Processes supported user commands.</li>
+            <li>Provides responses based on the implemented features.</li>
+            <li>Can be extended with additional assistant functions.</li>
+          </ul>
+
+        </div>
+
+        <!-- PROJECT 03: VOICE CALCULATOR -->
+
+        <div class="project">
+
+          <div class="project-number">PROJECT 03</div>
+
+          <h3>Voice Calculator</h3>
+
+          <div class="project-tech">
+            Voice Recognition • Calculator • Application Development
+          </div>
+
+          <p>
+            A calculator application designed to perform
+            mathematical calculations using voice commands,
+            where speech recognition is supported.
+          </p>
+
+          <ul>
+            <li>Accepts supported spoken mathematical expressions.</li>
+            <li>Processes arithmetic operations.</li>
+            <li>Displays the calculated result.</li>
+            <li>Can include spoken results if text-to-speech is implemented.</li>
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION AND 12TH MARKS -->
+
+  <section id="education">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="section-label">Education</div>
+        <h2>Academic Background</h2>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <h3>Higher Secondary Education (Class 12)</h3>
+
+          <div class="institution">
+            Higher Secondary School
+          </div>
+
+          <p>
+            Completed Class 12 with a total of 559 marks
+            out of 600.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="marks-card">
+
+        <h3>Class 12 Academic Performance</h3>
+
+        <p>Total Marks: <strong>559 / 600</strong></p>
+
+        <p>
+          Percentage:
+          <span class="percentage">93.17%</span>
+        </p>
+
+        <p>
+          Calculation: (559 ÷ 600) × 100 = 93.1667%,
+          rounded to 93.17%.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CURRENTLY LEARNING -->
+
+  <section id="learning">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="section-label">Currently Learning</div>
+        <h2>Developing New Skills</h2>
+      </div>
+
+      <div class="learning-grid">
+
+        <div class="learning-card">
+          <h3>Artificial Intelligence</h3>
+
+          <p>
+            Exploring AI concepts and ways to develop
+            intelligent applications.
+          </p>
+
+          <span class="status">LEARNING</span>
+        </div>
+
+        <div class="learning-card">
+          <h3>Programming and Development</h3>
+
+          <p>
+            Improving programming skills through practical
+            applications and projects.
+          </p>
+
+          <span class="status">ONGOING</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+
+  <section id="achievements">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="section-label">Achievements</div>
+        <h2>Academic Highlights</h2>
+
+        <p>
+          Highlights of academic performance and practical
+          project development.
+        </p>
+      </div>
+
+      <div class="achievement-list">
+
+        <div class="achievement">
+          Scored 559 out of 600 in Class 12.
+        </div>
+
+        <div class="achievement">
+          Achieved 93.17% in Higher Secondary Education.
+        </div>
+
+        <div class="achievement">
+          Developed a Tic Tac Toe game project.
+        </div>
+
+        <div class="achievement">
+          Explored AI Assistant application development.
+        </div>
+
+        <div class="achievement">
+          Worked on a Voice Calculator project.
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERESTS -->
+
+  <section id="interests">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="section-label">Interests</div>
+        <h2>Areas I'm Exploring</h2>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Artificial Intelligence</span>
+        <span class="tag">Python</span>
+        <span class="tag">Web Development</span>
+        <span class="tag">Game Development</span>
+        <span class="tag">Voice Recognition</span>
+        <span class="tag">AI Assistants</span>
+        <span class="tag">Application Development</span>
+        <span class="tag">Problem Solving</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="section-label">Contact</div>
+        <h2>Let's Connect</h2>
+      </div>
+
+      <div class="contact-box">
+
+        <p>
+          I'm interested in learning new technologies,
+          developing practical applications and collaborating
+          on programming projects.
+        </p>
+
+        <div class="contact-links">
+
+          <!-- Replace with your actual email address -->
+          <a href="mailto:YOUR_EMAIL@gmail.com"
+             class="co
